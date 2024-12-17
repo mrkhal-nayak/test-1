@@ -1,0 +1,7 @@
+name: Action for pull request.
+
+on: 
+  pull_requests
+    branch: [main]
+
+    
