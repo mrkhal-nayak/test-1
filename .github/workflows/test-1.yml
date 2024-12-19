@@ -23,7 +23,8 @@ jobs:
     needs: build-and-publish
     steps:
       - name: echo command
-        run: echo "deploy to the environment: ${{ github.event.input.environment.dev }}"
+        run: |
+          echo "deploy to the environment: ${{ github.event.input.environment.dev }}"
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -32,4 +33,5 @@ jobs:
     needs: [build-and-publish, deploy-dev]
     steps:
       - name: echo file
-        run: echo "deploy to the environment:${{ github.event.input.environment.prod }}"
+        run: |
+          echo "deploy to the environment:${{ github.event.input.environment.prod }}"
