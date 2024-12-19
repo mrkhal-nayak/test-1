@@ -1,10 +1,7 @@
 name: Testing-for-approvals
 
 on:
-  push:
-    branch:
-      [ master ]
-    inputs:
+    issues:
       environment:
         description: "Environment to deploy"
         required: true
