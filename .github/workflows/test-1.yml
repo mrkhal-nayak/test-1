@@ -9,8 +9,8 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps: Create a basic echo command
-     - name: Checkout
-       uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
       
   deploy-dev:
     runs-on: ubuntu-latest
