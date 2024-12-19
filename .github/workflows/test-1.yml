@@ -14,7 +14,8 @@ jobs:
       
   deploy-dev:
     runs-on: ubuntu-latest
-    environment: 'dev'
+    environment:
+      name: 'dev'
     needs: build-and-publish
     steps:
       - name: echo command
@@ -22,7 +23,8 @@ jobs:
 
   deploy-prod:
     runs-on: ubuntu-latest
-    environment: 'prod'
+    environment:
+      name: 'prod'
     needs: [build-and-publish, deploy-dev]
     steps:
       - name: echo file
