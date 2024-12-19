@@ -1,7 +1,29 @@
-name: Action for pull request.
+name: Testing-for-approvals
 
-on: 
-  pull_requests
-    branch: [main]
+on:
+  push:
+    branches:
+      - "main"
 
-    
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps: Create a basic echo command
+     - name: Checkout
+       uses: actions/checkout@master
+      
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: 'dev'
+    needs: build-and-publish
+    steps:
+      - name: echo command
+        run: echo "Hello world"
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    needs: [build-and-publish, deploy-dev]
+    steps: create file with echo command
+      - name: echo file
+        run: echo "Hello world" > hello.txt 
