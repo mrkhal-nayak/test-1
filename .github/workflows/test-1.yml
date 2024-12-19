@@ -24,6 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: 'prod'
     needs: [build-and-publish, deploy-dev]
-    steps: create file with echo command
+    steps:
       - name: echo file
         run: echo "Hello world" > hello.txt 
