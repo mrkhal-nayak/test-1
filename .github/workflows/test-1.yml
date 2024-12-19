@@ -1,7 +1,8 @@
 name: Testing-for-approvals
 
 on:
-    issues:
+  workflow_dispatch:
+    inputs:
       environment:
         description: "Environment to deploy"
         required: true
