@@ -1,10 +1,16 @@
 name: Testing-for-approvals
 
 on:
-  push:
-    branches:
-      - "main"
-
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy"
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+    
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -14,12 +20,10 @@ jobs:
       
   deploy-dev:
     runs-on: ubuntu-latest
-    environment:
-      name: 'dev'
     needs: build-and-publish
     steps:
       - name: echo command
-        run: echo "Hello world"
+        run: echo "deploy to the environment: ${{ github.event.input.environment.dev }}"
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -28,4 +32,4 @@ jobs:
     needs: [build-and-publish, deploy-dev]
     steps:
       - name: echo file
-        run: echo "Hello world" > hello.txt 
+        run: echo "deploy to the environment:${{ github.event.input.environment.prod }}"
