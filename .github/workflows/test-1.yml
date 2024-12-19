@@ -1,7 +1,9 @@
 name: Testing-for-approvals
 
 on:
-  workflow_dispatch:
+  push:
+    branch:
+      [ master ]
     inputs:
       environment:
         description: "Environment to deploy"
