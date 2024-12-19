@@ -30,4 +30,7 @@ jobs:
       - name: Run the build command for dev env
         run: echo "Build Dev"
 
+      - name: show the usage of memory
+        run: free -h
+
         
